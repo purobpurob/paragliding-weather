@@ -42,18 +42,10 @@ body {
 }
 
 .page-header-photo {
-  height: 200px;
+  aspect-ratio: 1584 / 672;
   background-image: url('borup.jpg');
   background-size: cover;
-  background-position: center 62%;
-}
-
-@media (max-width: 640px) {
-  .page-header-photo {
-    height: auto;
-    aspect-ratio: 1584 / 672;
-    background-position: center;
-  }
+  background-position: center;
 }
 
 .page-header-content {
