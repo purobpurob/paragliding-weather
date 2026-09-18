@@ -180,7 +180,7 @@
           '<div class="window-row-stats">' +
             '<span>' + w.wind.toFixed(1).replace(".", ",") + ' m/s</span>' +
             '<span>' + w.gust.toFixed(1).replace(".", ",") + ' m/s gust</span>' +
-            '<span>' + w.direction + ' ' + Math.round(w.degrees) + '&deg;</span>' +
+            '<span>' + windArrow(w.degrees) + ' ' + w.direction + ' ' + Math.round(w.degrees) + '&deg;</span>' +
             '<span>' + (w.precipitation || 0).toFixed(1).replace(".", ",") + ' mm</span>' +
           '</div>' +
           '<p class="window-row-reason">' + w.reason + '</p>' +
