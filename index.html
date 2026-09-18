@@ -132,6 +132,25 @@
     return '<span class="arrow" style="transform: rotate(' + rotation + 'deg)">&#8593;</span>';
   }
 
+  // Rigtige flag som SVG i stedet for emoji. Windows viser flag-emojis som
+  // bogstaver (fx "SE", "DK") i stedet for flag, så vi tegner dem selv
+  const FLAG_SVG = {
+    SE: '<svg viewBox="0 0 37 28" xmlns="http://www.w3.org/2000/svg">' +
+          '<rect width="37" height="28" fill="#006AA7"/>' +
+          '<rect x="13" width="5" height="28" fill="#FECC02"/>' +
+          '<rect y="11" width="37" height="6" fill="#FECC02"/>' +
+        '</svg>',
+    DK: '<svg viewBox="0 0 37 28" xmlns="http://www.w3.org/2000/svg">' +
+          '<rect width="37" height="28" fill="#C8102E"/>' +
+          '<rect x="12" width="6" height="28" fill="#fff"/>' +
+          '<rect y="11" width="37" height="6" fill="#fff"/>' +
+        '</svg>'
+  };
+
+  function flagHtml(code) {
+    return FLAG_SVG[code] || "";
+  }
+
   // Windy-koordinater for de præcise startsteder
   const WINDY_SITES = {
     "Heatherhill":     { path: "",             query: "56.089,12.140,15,m:feEagvp" },
@@ -230,7 +249,7 @@
     card.innerHTML =
       '<div class="card-top">' +
         '<h2 class="site-name">' + site.name + '</h2>' +
-        '<span class="flag">' + (site.flag || "") + '</span>' +
+        '<span class="flag">' + flagHtml(site.flag) + '</span>' +
       '</div>' +
       dayDetailsHtml(site, today) +
       windyLinkHtml(site.name);
@@ -307,7 +326,7 @@
 
     modalContent.innerHTML =
       '<h2 id="day-modal-title" class="modal-title">' +
-        site.name + ' <span class="flag">' + (site.flag || "") + '</span>' +
+        site.name + ' <span class="flag">' + flagHtml(site.flag) + '</span>' +
       '</h2>' +
       '<p class="modal-date">' + fullDateLabel(day.date) + '</p>' +
       dayDetailsHtml(site, day) +
