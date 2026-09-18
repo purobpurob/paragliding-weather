@@ -196,7 +196,16 @@ body {
 }
 
 .flag {
-  font-size: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.flag svg {
+  width: 26px;
+  height: 20px;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(20, 25, 35, 0.12);
+  display: block;
 }
 
 .status-pill {
