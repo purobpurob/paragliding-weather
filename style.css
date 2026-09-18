@@ -1,6 +1,6 @@
 :root {
   --bg: #ffffff;
-  --text: #1a1f26;
+  --text: #363c46;
   --muted: #6b7684;
   --line: #e7eaee;
   --card-bg: #ffffff;
@@ -53,6 +53,53 @@ body {
   color: var(--muted);
   font-size: 0.85rem;
   margin-top: 10px;
+}
+
+.assumptions-toggle {
+  margin-top: 14px;
+  background: #f7f8fa;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.assumptions-toggle:hover {
+  background: var(--line);
+}
+
+.assumptions-panel {
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  padding: 20px 22px;
+  margin-bottom: 24px;
+}
+
+.assumptions-panel h2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.assumptions-panel h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-top: 14px;
+  margin-bottom: 4px;
+}
+
+.assumptions-panel h3:first-of-type {
+  margin-top: 0;
+}
+
+.assumptions-panel p {
+  color: var(--muted);
+  font-size: 0.88rem;
 }
 
 /* ---------- Weather cards ---------- */
