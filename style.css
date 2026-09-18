@@ -39,7 +39,7 @@ body {
   padding: 40px 20px;
   border-radius: 20px;
   background-image:
-    linear-gradient(rgba(20, 25, 20, 0.32), rgba(20, 25, 20, 0.22)),
+    linear-gradient(rgba(20, 25, 20, 0.16), rgba(20, 25, 20, 0.1)),
     url('parapic.jpg');
   background-size: cover;
   background-position: center 45%;
@@ -65,6 +65,11 @@ body {
   font-size: 0.85rem;
   margin-top: 10px;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.assumptions-toggle-wrap {
+  text-align: center;
+  margin-bottom: 24px;
 }
 
 .assumptions-toggle {
