@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Borup's Paragliding Weather</title>
+<title>Paragliding Weather Forecast</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="page-header">
-  <h1>🪂 Borup's Paragliding Weather</h1>
+  <h1>🪂 Paragliding Weather Forecast</h1>
   <p class="sub">Elev Flyvevejr for Hammars Backar &amp; Heatherhill</p>
   <p class="updated" id="updated">Henter data...</p>
 </header>
@@ -129,8 +129,35 @@
     return '<span class="arrow" style="transform: rotate(' + rotation + 'deg)">&#8593;</span>';
   }
 
+  // Windy-koordinater for de præcise startsteder. Klokkeslættet i linket
+  // sættes dynamisk til kl. 13 den valgte dag, midt i det bedste flyvevindue
+  const WINDY_SITES = {
+    "Heatherhill":     { path: "",             lat: 56.092, lon: 12.153, zoom: 16, layer: "feEagvp" },
+    "Hammars Backar":  { path: "55.401/14.014", lat: 55.389, lon: 14.029, zoom: 13, layer: "feEagvp" }
+  };
+  const WINDY_HOUR = 13;
+
+  function windyUrl(siteName, isoDate) {
+    const site = WINDY_SITES[siteName];
+    if (!site) return null;
+
+    const hh = String(WINDY_HOUR).padStart(2, "0");
+    const query = isoDate + "-" + hh + "," + site.lat + "," + site.lon + "," + site.zoom + ",m:" + site.layer;
+    return "https://www.windy.com/" + site.path + "?" + query;
+  }
+
+  function windyLinkHtml(siteName, isoDate) {
+    const url = windyUrl(siteName, isoDate);
+    if (!url) return "";
+    return '<a class="windy-link" href="' + url + '" target="_blank" rel="noopener">Se vind på Windy &#8599;</a>';
+  }
+
+  function isValidWindow(w) {
+    return w && typeof w === "object" && typeof w.wind === "number";
+  }
+
   function windowChipsHtml(windows) {
-    if (!windows || !windows.length) return "";
+    if (!windows || !windows.length || !windows.every(isValidWindow)) return "";
 
     let html = '<div class="windows-row">';
     windows.forEach(w => {
@@ -144,7 +171,7 @@
   }
 
   function windowTableHtml(windows) {
-    if (!windows || !windows.length) return "";
+    if (!windows || !windows.length || !windows.every(isValidWindow)) return "";
 
     let html = '<div class="window-table"><h3 class="window-table-title">Tidsvinduer</h3>';
     windows.forEach(w => {
@@ -192,7 +219,8 @@
         '<span class="gust-label">Nedbør</span>' +
         '<span class="gust-value">' + (day.precipitation || 0).toFixed(1).replace(".", ",") + ' mm</span>' +
       '</div>' +
-      '<p class="reason">' + day.reason + '</p>'
+      '<p class="reason">' + day.reason + '</p>' +
+      windyLinkHtml(site.name, day.date)
     );
   }
 
