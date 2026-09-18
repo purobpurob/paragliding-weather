@@ -123,7 +123,16 @@
     const d = parseDate(iso);
     const dd = String(d.getDate()).padStart(2, "0");
     const mm = String(d.getMonth() + 1).padStart(2, "0");
-    return dd + "/" + mm;
+    return dd + "/" + mm + "/" + d.getFullYear();
+  }
+
+  // Kortere udgave (2-cifret år) til de smalle kolonner i 5 dages forecast
+  function compactDateLabel(iso) {
+    const d = parseDate(iso);
+    const dd = String(d.getDate()).padStart(2, "0");
+    const mm = String(d.getMonth() + 1).padStart(2, "0");
+    const yy = String(d.getFullYear()).slice(-2);
+    return dd + "/" + mm + "/" + yy;
   }
 
   function formatUpdated(iso) {
@@ -304,7 +313,7 @@
       headerHtml +=
         '<div class="forecast-cell forecast-day-header">' +
           weekdayLabel(day.date) +
-          '<div class="forecast-day-date">' + shortDateLabel(day.date) + '</div>' +
+          '<div class="forecast-day-date">' + compactDateLabel(day.date) + '</div>' +
         '</div>';
     });
     header.innerHTML = headerHtml;
