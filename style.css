@@ -565,6 +565,10 @@ body {
   .forecast-site {
     font-size: 0.8rem;
   }
+
+  .forecast-day-date {
+    font-size: 0.62rem;
+  }
 }
 
 @media (max-width: 380px) {
