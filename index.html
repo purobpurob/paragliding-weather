@@ -70,6 +70,9 @@
     <li>🟡 Vær opmærksom: Marginal retning eller højere vind</li>
     <li>🔴 Ikke egnet: Forkert retning eller for kraftig vind</li>
   </ul>
+
+  <h3>Tidsvinduer</h3>
+  <p>Hver dag er delt op i tre tidsvinduer: formiddag (09-13), eftermiddag (13-16) og sen eftermiddag (16-19). Dagens samlede farve er det værste udfald blandt de tre vinduer. Klik på en prik i 5 dages forecast for at se detaljer for hvert tidsvindue.</p>
 </section>
 
 <div class="modal-overlay" id="day-modal-overlay" hidden>
@@ -126,11 +129,50 @@
     return '<span class="arrow" style="transform: rotate(' + rotation + 'deg)">&#8593;</span>';
   }
 
+  function windowChipsHtml(windows) {
+    if (!windows || !windows.length) return "";
+
+    let html = '<div class="windows-row">';
+    windows.forEach(w => {
+      html +=
+        '<div class="window-chip" title="' + w.label + ' ' + w.range + '">' +
+          '<span class="window-dot status-' + w.status + '"></span>' +
+          '<span class="window-label">' + w.label + '</span>' +
+        '</div>';
+    });
+    return html + '</div>';
+  }
+
+  function windowTableHtml(windows) {
+    if (!windows || !windows.length) return "";
+
+    let html = '<div class="window-table"><h3 class="window-table-title">Tidsvinduer</h3>';
+    windows.forEach(w => {
+      html +=
+        '<div class="window-row">' +
+          '<div class="window-row-top">' +
+            '<span class="window-dot status-' + w.status + '"></span>' +
+            '<span class="window-row-label">' + w.label + '</span>' +
+            '<span class="window-row-range">' + w.range + '</span>' +
+          '</div>' +
+          '<div class="window-row-stats">' +
+            '<span>' + w.wind.toFixed(1).replace(".", ",") + ' m/s</span>' +
+            '<span>' + w.gust.toFixed(1).replace(".", ",") + ' m/s gust</span>' +
+            '<span>' + w.direction + ' ' + Math.round(w.degrees) + '&deg;</span>' +
+            '<span>' + (w.precipitation || 0).toFixed(1).replace(".", ",") + ' mm</span>' +
+          '</div>' +
+          '<p class="window-row-reason">' + w.reason + '</p>' +
+        '</div>';
+    });
+    return html + '</div>';
+  }
+
   function dayDetailsHtml(site, day) {
     const label = STATUS_LABEL[day.status] || "Ukendt";
 
     return (
       '<div class="status-pill status-' + day.status + '">' + label.toUpperCase() + '</div>' +
+      windowChipsHtml(day.windows) +
       '<div class="card-body">' +
         '<div class="metric">' +
           '<div class="metric-value">' + day.wind.toFixed(1).replace(".", ",") + ' m/s</div>' +
@@ -242,7 +284,8 @@
         site.name + ' <span class="flag">' + (site.flag || "") + '</span>' +
       '</h2>' +
       '<p class="modal-date">' + fullDateLabel(day.date) + '</p>' +
-      dayDetailsHtml(site, day);
+      dayDetailsHtml(site, day) +
+      windowTableHtml(day.windows);
 
     modalOverlay.hidden = false;
     modalClose.focus();
