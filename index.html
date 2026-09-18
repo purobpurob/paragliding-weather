@@ -24,6 +24,8 @@
 <section class="assumptions-panel" id="assumptions-panel" hidden>
   <h2>Forudsætninger for vurdering</h2>
 
+  <p class="assumptions-note">Vurderingerne er lavet med elever i tanke og er bevidst konservative. Ved tvivl vises en skarpere farve, end en erfaren pilot måske selv ville vælge.</p>
+
   <h3>Hammars Backar</h3>
   <ul>
     <li>🟢 Grøn: 190&deg;-260&deg;</li>
@@ -47,6 +49,18 @@
       <tr><td>&le; 5 m/s og &le; 8 m/s gust</td><td>🟢</td></tr>
       <tr><td>&gt; 5 m/s eller &gt; 8 m/s gust</td><td>🟡</td></tr>
       <tr><td>&gt; 6 m/s eller &gt; 10 m/s gust</td><td>🔴</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Nedbør</h3>
+  <table class="assumptions-table">
+    <thead>
+      <tr><th>Forhold</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Ingen målbar nedbør</td><td>🟢</td></tr>
+      <tr><td>Nedbør i perioder</td><td>🟡</td></tr>
+      <tr><td>Regn (over 1 mm/t)</td><td>🔴</td></tr>
     </tbody>
   </table>
 
@@ -124,6 +138,10 @@
       '<div class="gust-row">' +
         '<span class="gust-label">Vindstød</span>' +
         '<span class="gust-value">' + today.gust.toFixed(1).replace(".", ",") + ' m/s</span>' +
+      '</div>' +
+      '<div class="gust-row">' +
+        '<span class="gust-label">Nedbør</span>' +
+        '<span class="gust-value">' + (today.precipitation || 0).toFixed(1).replace(".", ",") + ' mm</span>' +
       '</div>' +
       '<p class="reason">' + today.reason + '</p>';
 
