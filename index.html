@@ -1,16 +1,102 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-    <meta charset="UTF-8">
-    <title>Paragliding Weather</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paragliding vejrudsigt</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <h1>🪂 Paragliding vejrudsigt</h1>
+    <p class="sub">Hammars Backar + Heatherhill</p>
+    <p class="meta" id="meta">Henter data...</p>
+  </header>
 
-<h1>🪂 Paragliding Weather</h1>
+  <main id="sites"></main>
 
-<p>Hammars Backar + Heatherhill</p>
+  <footer>
+    <div class="legend">
+      <span><i class="dot green"></i> Grøn, gode muligheder</span>
+      <span><i class="dot yellow"></i> Gul, usikker</span>
+      <span><i class="dot red"></i> Rød, no-go</span>
+    </div>
+    <p class="source">Data fra Open-Meteo</p>
+  </footer>
 
-<p>Website er online 👍</p>
+  <script>
+    const STATUS = {
+      green:  { icon: "🟢", label: "Grøn, gode muligheder" },
+      yellow: { icon: "🟡", label: "Gul, usikker" },
+      red:    { icon: "🔴", label: "Rød, no-go" }
+    };
 
+    function formatDate(iso) {
+      const d = new Date(iso + "T00:00:00");
+      const days = ["søndag", "mandag", "tirsdag", "onsdag", "torsdag", "fredag", "lørdag"];
+      const dd = String(d.getDate()).padStart(2, "0");
+      const mm = String(d.getMonth() + 1).padStart(2, "0");
+      return days[d.getDay()] + " " + dd + "/" + mm;
+    }
+
+    function formatUpdated(iso) {
+      const d = new Date(iso);
+      const dd = String(d.getDate()).padStart(2, "0");
+      const mm = String(d.getMonth() + 1).padStart(2, "0");
+      const hh = String(d.getHours()).padStart(2, "0");
+      const mi = String(d.getMinutes()).padStart(2, "0");
+      return dd + "/" + mm + "/" + d.getFullYear() + " " + hh + ":" + mi;
+    }
+
+    function render(data) {
+      document.getElementById("meta").textContent =
+        "Flyvetid " + data.flyingHours + " · " + data.forecastDays +
+        " dage · opdateret " + formatUpdated(data.updated);
+
+      const main = document.getElementById("sites");
+      main.innerHTML = "";
+
+      data.sites.forEach(site => {
+        const section = document.createElement("section");
+        section.className = "site";
+
+        const h2 = document.createElement("h2");
+        h2.textContent = site.name;
+        section.appendChild(h2);
+
+        site.days.forEach(day => {
+          const s = STATUS[day.status] || STATUS.red;
+          const card = document.createElement("div");
+          card.className = "day " + day.status;
+          card.innerHTML =
+            '<div class="day-head">' +
+              '<span class="icon">' + s.icon + '</span>' +
+              '<span class="date">' + formatDate(day.date) + '</span>' +
+              '<span class="verdict">' + s.label + '</span>' +
+            '</div>' +
+            '<div class="stats">' +
+              '<div><span class="k">Vind</span><span class="v">' + day.wind.toFixed(1) + ' m/s</span></div>' +
+              '<div><span class="k">Vindstød</span><span class="v">' + day.gust.toFixed(1) + ' m/s</span></div>' +
+              '<div><span class="k">Retning</span><span class="v">' + day.direction + ' (' + Math.round(day.degrees) + '°)</span></div>' +
+            '</div>' +
+            '<p class="reason">' + day.reason + '</p>';
+          section.appendChild(card);
+        });
+
+        main.appendChild(section);
+      });
+    }
+
+    fetch("weather.json?" + Date.now())
+      .then(r => {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      })
+      .then(render)
+      .catch(err => {
+        document.getElementById("meta").textContent =
+          "Kunne ikke hente weather.json. " + err.message;
+      });
+  </script>
 </body>
 </html>

@@ -1,0 +1,143 @@
+:root {
+  --bg: #0f1720;
+  --card: #1b2732;
+  --text: #e8eef3;
+  --muted: #8ba0b2;
+  --line: #2b3a48;
+  --green: #22c55e;
+  --yellow: #eab308;
+  --red: #ef4444;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  padding: 24px 16px 48px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+header { text-align: center; margin-bottom: 28px; }
+
+header h1 { font-size: 1.7rem; }
+
+.sub { color: var(--muted); margin-top: 4px; }
+
+.meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 10px;
+}
+
+.site { margin-bottom: 32px; }
+
+.site h2 {
+  font-size: 1.2rem;
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.day {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-left: 5px solid var(--line);
+}
+
+.day.green  { border-left-color: var(--green); }
+.day.yellow { border-left-color: var(--yellow); }
+.day.red    { border-left-color: var(--red); }
+
+.day-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.day-head .icon { font-size: 1.1rem; }
+
+.day-head .date {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.day-head .verdict {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.stats div {
+  display: flex;
+  flex-direction: column;
+}
+
+.stats .k {
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.stats .v {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.reason {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+footer {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.legend .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.dot.green  { background: var(--green); }
+.dot.yellow { background: var(--yellow); }
+.dot.red    { background: var(--red); }
+
+.source {
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-top: 12px;
+}
+
+@media (max-width: 520px) {
+  .stats { grid-template-columns: 1fr 1fr; }
+  .day-head .verdict { margin-left: 0; width: 100%; }
+}
