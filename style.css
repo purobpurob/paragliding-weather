@@ -56,19 +56,18 @@ body {
 }
 
 .assumptions-toggle {
-  margin-top: 14px;
-  background: #f7f8fa;
-  color: var(--text);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 8px 18px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  background: none;
+  color: var(--muted);
+  border: none;
+  padding: 4px 0;
+  font-size: 0.78rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
   cursor: pointer;
 }
 
 .assumptions-toggle:hover {
-  background: var(--line);
+  color: var(--text);
 }
 
 .assumptions-panel {
@@ -90,7 +89,7 @@ body {
   font-size: 0.9rem;
   font-weight: 700;
   margin-top: 14px;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .assumptions-panel h3:first-of-type {
@@ -100,6 +99,43 @@ body {
 .assumptions-panel p {
   color: var(--muted);
   font-size: 0.88rem;
+}
+
+.assumptions-panel ul {
+  list-style: none;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.assumptions-panel ul li {
+  padding: 3px 0;
+}
+
+.assumptions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-top: 4px;
+}
+
+.assumptions-table th {
+  text-align: left;
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.assumptions-table td {
+  padding: 7px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
+}
+
+.assumptions-table td:last-child {
+  text-align: right;
 }
 
 /* ---------- Weather cards ---------- */
