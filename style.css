@@ -34,37 +34,41 @@ body {
 /* ---------- Header ---------- */
 
 .page-header {
-  text-align: center;
   margin-bottom: 24px;
-  padding: 40px 20px;
   border-radius: 20px;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.4)),
-    url('parapic.jpg');
+  overflow: hidden;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+}
+
+.page-header-photo {
+  height: 170px;
+  background-image: url('parapic.jpg');
   background-size: cover;
   background-position: center 45%;
-  box-shadow: var(--card-shadow);
+}
+
+.page-header-content {
+  text-align: center;
+  padding: 20px 20px 24px;
 }
 
 .page-header h1 {
   font-size: 1.6rem;
   font-weight: 700;
   color: #14161a;
-  text-shadow: 0 1px 6px rgba(255, 255, 255, 0.6);
 }
 
 .page-header .sub {
-  color: #14161a;
+  color: var(--text);
   margin-top: 4px;
   font-size: 0.95rem;
-  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.6);
 }
 
 .page-header .updated {
-  color: #14161a;
+  color: var(--muted);
   font-size: 0.85rem;
   margin-top: 10px;
-  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.6);
 }
 
 .assumptions-toggle-wrap {
