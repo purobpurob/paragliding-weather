@@ -129,25 +129,20 @@
     return '<span class="arrow" style="transform: rotate(' + rotation + 'deg)">&#8593;</span>';
   }
 
-  // Windy-koordinater for de præcise startsteder. Klokkeslættet i linket
-  // sættes dynamisk til kl. 13 den valgte dag, midt i det bedste flyvevindue
+  // Windy-koordinater for de præcise startsteder
   const WINDY_SITES = {
-    "Heatherhill":     { path: "",             lat: 56.092, lon: 12.153, zoom: 16, layer: "feEagvp" },
-    "Hammars Backar":  { path: "55.401/14.014", lat: 55.389, lon: 14.029, zoom: 13, layer: "feEagvp" }
+    "Heatherhill":     { path: "",             query: "56.089,12.140,15,m:feEagvp" },
+    "Hammars Backar":  { path: "55.401/14.014", query: "55.380,14.019,12,m:feEagvp" }
   };
-  const WINDY_HOUR = 13;
 
-  function windyUrl(siteName, isoDate) {
+  function windyUrl(siteName) {
     const site = WINDY_SITES[siteName];
     if (!site) return null;
-
-    const hh = String(WINDY_HOUR).padStart(2, "0");
-    const query = isoDate + "-" + hh + "," + site.lat + "," + site.lon + "," + site.zoom + ",m:" + site.layer;
-    return "https://www.windy.com/" + site.path + "?" + query;
+    return "https://www.windy.com/" + site.path + "?" + site.query;
   }
 
-  function windyLinkHtml(siteName, isoDate) {
-    const url = windyUrl(siteName, isoDate);
+  function windyLinkHtml(siteName) {
+    const url = windyUrl(siteName);
     if (!url) return "";
     return '<a class="windy-link" href="' + url + '" target="_blank" rel="noopener">Se vind på Windy &#8599;</a>';
   }
@@ -219,8 +214,7 @@
         '<span class="gust-label">Nedbør</span>' +
         '<span class="gust-value">' + (day.precipitation || 0).toFixed(1).replace(".", ",") + ' mm</span>' +
       '</div>' +
-      '<p class="reason">' + day.reason + '</p>' +
-      windyLinkHtml(site.name, day.date)
+      '<p class="reason">' + day.reason + '</p>'
     );
   }
 
@@ -235,7 +229,8 @@
         '<h2 class="site-name">' + site.name + '</h2>' +
         '<span class="flag">' + (site.flag || "") + '</span>' +
       '</div>' +
-      dayDetailsHtml(site, today);
+      dayDetailsHtml(site, today) +
+      windyLinkHtml(site.name);
 
     return card;
   }
