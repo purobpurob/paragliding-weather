@@ -39,7 +39,7 @@ body {
   padding: 40px 20px;
   border-radius: 20px;
   background-image:
-    linear-gradient(rgba(20, 25, 20, 0.16), rgba(20, 25, 20, 0.1)),
+    linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.4)),
     url('parapic.jpg');
   background-size: cover;
   background-position: center 45%;
@@ -49,22 +49,22 @@ body {
 .page-header h1 {
   font-size: 1.6rem;
   font-weight: 700;
-  color: #ffffff;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+  color: #14161a;
+  text-shadow: 0 1px 6px rgba(255, 255, 255, 0.6);
 }
 
 .page-header .sub {
-  color: #eef0f2;
+  color: #14161a;
   margin-top: 4px;
   font-size: 0.95rem;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.6);
 }
 
 .page-header .updated {
-  color: #eef0f2;
+  color: #14161a;
   font-size: 0.85rem;
   margin-top: 10px;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.6);
 }
 
 .assumptions-toggle-wrap {
