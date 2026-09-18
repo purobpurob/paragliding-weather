@@ -15,12 +15,13 @@
 </header>
 
 <div class="assumptions-toggle-wrap">
-  <button class="assumptions-toggle" id="assumptions-toggle" type="button" aria-expanded="false">
+  <button class="assumptions-toggle" id="assumptions-toggle" type="button" aria-haspopup="dialog">
     Forudsætninger for vurdering
   </button>
 </div>
 
 <section class="assumptions-panel" id="assumptions-panel" hidden>
+  <div class="assumptions-body" id="assumptions-body">
   <h2>Forudsætninger for vurdering</h2>
 
   <p class="assumptions-note">Vurderingerne er lavet med elever i tanke og er bevidst konservative. Ved tvivl vises en skarpere farve, end en erfaren pilot måske selv ville vælge.</p>
@@ -72,6 +73,7 @@
 
   <h3>Tidsvinduer</h3>
   <p>Hver dag er delt op i tre tidsvinduer: formiddag (09-13), eftermiddag (13-16) og sen eftermiddag (16-19). Dagens samlede farve er det værste udfald blandt de tre vinduer. Klik på en prik i 5 dages forecast for at se detaljer for hvert tidsvindue.</p>
+  </div>
 </section>
 
 <main id="cards" class="cards"></main>
@@ -298,16 +300,7 @@
   }
 
   const toggleBtn = document.getElementById("assumptions-toggle");
-  const panel = document.getElementById("assumptions-panel");
-
-  toggleBtn.addEventListener("click", () => {
-    const isOpen = !panel.hidden;
-    panel.hidden = isOpen;
-    toggleBtn.setAttribute("aria-expanded", String(!isOpen));
-    toggleBtn.textContent = isOpen
-      ? "Forudsætninger for vurdering"
-      : "Skjul forudsætninger";
-  });
+  const assumptionsBody = document.getElementById("assumptions-body");
 
   // ---------- Dag-detaljer modal ----------
 
@@ -339,6 +332,14 @@
   function closeDayModal() {
     modalOverlay.hidden = true;
   }
+
+  function openAssumptionsModal() {
+    modalContent.innerHTML = '<div class="assumptions-body">' + assumptionsBody.innerHTML + '</div>';
+    modalOverlay.hidden = false;
+    modalClose.focus();
+  }
+
+  toggleBtn.addEventListener("click", openAssumptionsModal);
 
   document.getElementById("forecast-table").addEventListener("click", (e) => {
     const dot = e.target.closest(".forecast-dot");
