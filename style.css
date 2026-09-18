@@ -39,10 +39,10 @@ body {
   padding: 40px 20px;
   border-radius: 20px;
   background-image:
-    linear-gradient(rgba(20, 25, 20, 0.55), rgba(20, 25, 20, 0.4)),
+    linear-gradient(rgba(20, 25, 20, 0.32), rgba(20, 25, 20, 0.22)),
     url('parapic.jpg');
   background-size: cover;
-  background-position: center 65%;
+  background-position: center 45%;
   box-shadow: var(--card-shadow);
 }
 
