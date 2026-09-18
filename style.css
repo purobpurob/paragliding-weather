@@ -189,10 +189,22 @@ body {
   margin-bottom: 12px;
 }
 
+.site-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
 .site-name {
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 0.01em;
+}
+
+.card-date {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
 }
 
 .flag {
@@ -381,6 +393,14 @@ body {
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.03em;
+}
+
+.forecast-day-date {
+  font-size: 0.7rem;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  margin-top: 2px;
 }
 
 .forecast-day {
