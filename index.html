@@ -1,102 +1,144 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>8orup's Paragliding vejrudsigt</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paragliding vejrudsigt</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>🪂 8orup's Paragliding vejrudsigt</h1>
-    <p class="sub">Hammars Backar + Heatherhill</p>
-    <p class="meta" id="meta">Henter data...</p>
-  </header>
 
-  <main id="sites"></main>
+<header class="page-header">
+  <h1>🪂 Paragliding Weather</h1>
+  <p class="sub">Flyvevejr for Hammars Backar &amp; Heatherhill</p>
+  <p class="updated" id="updated">Henter data...</p>
+</header>
 
-  <footer>
-    <div class="legend">
-      <span><i class="dot green"></i> Grøn, gode muligheder</span>
-      <span><i class="dot yellow"></i> Gul, usikker</span>
-      <span><i class="dot red"></i> Rød, no-go</span>
-    </div>
-    <p class="source">Vibecod by 8orup</p>
-  </footer>
+<main id="cards" class="cards"></main>
 
-  <script>
-    const STATUS = {
-      green:  { icon: "🟢", label: "Grøn, gode muligheder" },
-      yellow: { icon: "🟡", label: "Gul, usikker" },
-      red:    { icon: "🔴", label: "Rød, no-go" }
-    };
+<section class="forecast" id="forecast">
+  <h2>5 dages forecast</h2>
+  <div class="forecast-table" id="forecast-table"></div>
+</section>
 
-    function formatDate(iso) {
-      const d = new Date(iso + "T00:00:00");
-      const days = ["søndag", "mandag", "tirsdag", "onsdag", "torsdag", "fredag", "lørdag"];
-      const dd = String(d.getDate()).padStart(2, "0");
-      const mm = String(d.getMonth() + 1).padStart(2, "0");
-      return days[d.getDay()] + " " + dd + "/" + mm;
-    }
+<footer class="page-footer">
+  <p>Data fra Open-Meteo</p>
+</footer>
 
-    function formatUpdated(iso) {
-      const d = new Date(iso);
-      const dd = String(d.getDate()).padStart(2, "0");
-      const mm = String(d.getMonth() + 1).padStart(2, "0");
-      const hh = String(d.getHours()).padStart(2, "0");
-      const mi = String(d.getMinutes()).padStart(2, "0");
-      return dd + "/" + mm + "/" + d.getFullYear() + " " + hh + ":" + mi;
-    }
+<script>
+  const STATUS_LABEL = {
+    green:  "Gode muligheder",
+    yellow: "Usikker",
+    red:    "No-go"
+  };
 
-    function render(data) {
-      document.getElementById("meta").textContent =
-        "Flyvetid " + data.flyingHours + " · " + data.forecastDays +
-        " dage · opdateret " + formatUpdated(data.updated);
+  const WEEKDAYS = ["Søn", "Man", "Tir", "Ons", "Tor", "Fre", "Lør"];
 
-      const main = document.getElementById("sites");
-      main.innerHTML = "";
+  function parseDate(iso) {
+    return new Date(iso + "T00:00:00");
+  }
 
-      data.sites.forEach(site => {
-        const section = document.createElement("section");
-        section.className = "site";
+  function weekdayLabel(iso) {
+    return WEEKDAYS[parseDate(iso).getDay()];
+  }
 
-        const h2 = document.createElement("h2");
-        h2.textContent = site.name;
-        section.appendChild(h2);
+  function formatUpdated(iso) {
+    const d = new Date(iso);
+    const dd = String(d.getDate()).padStart(2, "0");
+    const mm = String(d.getMonth() + 1).padStart(2, "0");
+    const hh = String(d.getHours()).padStart(2, "0");
+    const mi = String(d.getMinutes()).padStart(2, "0");
+    return "Opdateret: " + dd + "/" + mm + "/" + d.getFullYear() + " " + hh + ":" + mi;
+  }
 
-        site.days.forEach(day => {
-          const s = STATUS[day.status] || STATUS.red;
-          const card = document.createElement("div");
-          card.className = "day " + day.status;
-          card.innerHTML =
-            '<div class="day-head">' +
-              '<span class="icon">' + s.icon + '</span>' +
-              '<span class="date">' + formatDate(day.date) + '</span>' +
-              '<span class="verdict">' + s.label + '</span>' +
-            '</div>' +
-            '<div class="stats">' +
-              '<div><span class="k">Vind</span><span class="v">' + day.wind.toFixed(1) + ' m/s</span></div>' +
-              '<div><span class="k">Vindstød</span><span class="v">' + day.gust.toFixed(1) + ' m/s</span></div>' +
-              '<div><span class="k">Retning</span><span class="v">' + day.direction + ' (' + Math.round(day.degrees) + '°)</span></div>' +
-            '</div>' +
-            '<p class="reason">' + day.reason + '</p>';
-          section.appendChild(card);
-        });
+  function windArrow(degrees) {
+    // Pilen peger derhen vinden blæser hen (mod vindretningen + 180 grader)
+    const rotation = (degrees + 180) % 360;
+    return '<span class="arrow" style="transform: rotate(' + rotation + 'deg)">&#8593;</span>';
+  }
 
-        main.appendChild(section);
-      });
-    }
+  function buildCard(site) {
+    const today = site.days[0];
+    const label = STATUS_LABEL[today.status] || "Ukendt";
 
-    fetch("weather.json?" + Date.now())
-      .then(r => {
-        if (!r.ok) throw new Error("HTTP " + r.status);
-        return r.json();
-      })
-      .then(render)
-      .catch(err => {
-        document.getElementById("meta").textContent =
-          "Kunne ikke hente weather.json. " + err.message;
-      });
-  </script>
+    const card = document.createElement("article");
+    card.className = "weather-card status-" + today.status;
+
+    card.innerHTML =
+      '<div class="card-top">' +
+        '<h2 class="site-name">' + site.name + '</h2>' +
+        '<span class="flag">' + (site.flag || "") + '</span>' +
+      '</div>' +
+      '<div class="status-pill status-' + today.status + '">' + label.toUpperCase() + '</div>' +
+      '<div class="card-body">' +
+        '<div class="metric">' +
+          '<div class="metric-value">' + today.wind.toFixed(1).replace(".", ",") + ' m/s</div>' +
+          '<div class="metric-label">Vind</div>' +
+        '</div>' +
+        '<div class="metric metric-direction">' +
+          windArrow(today.degrees) +
+          '<div class="metric-value">' + today.direction + ' ' + Math.round(today.degrees) + '&deg;</div>' +
+          '<div class="metric-label">Retning</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="gust-row">' +
+        '<span class="gust-label">Vindstød</span>' +
+        '<span class="gust-value">' + today.gust.toFixed(1).replace(".", ",") + ' m/s</span>' +
+      '</div>' +
+      '<p class="reason">' + today.reason + '</p>';
+
+    return card;
+  }
+
+  function buildForecastRow(site) {
+    const row = document.createElement("div");
+    row.className = "forecast-row";
+
+    let cellsHtml = '<div class="forecast-site">' + site.name + '</div>';
+    site.days.forEach(day => {
+      cellsHtml +=
+        '<div class="forecast-cell">' +
+          '<div class="forecast-dot status-' + day.status + '"></div>' +
+        '</div>';
+    });
+
+    row.innerHTML = cellsHtml;
+    return row;
+  }
+
+  function render(data) {
+    document.getElementById("updated").textContent = formatUpdated(data.updated);
+
+    const cardsEl = document.getElementById("cards");
+    cardsEl.innerHTML = "";
+    data.sites.forEach(site => cardsEl.appendChild(buildCard(site)));
+
+    const tableEl = document.getElementById("forecast-table");
+    tableEl.innerHTML = "";
+
+    const header = document.createElement("div");
+    header.className = "forecast-row forecast-header";
+    let headerHtml = '<div class="forecast-site"></div>';
+    data.sites[0].days.forEach(day => {
+      headerHtml += '<div class="forecast-cell forecast-day-header">' + weekdayLabel(day.date) + '</div>';
+    });
+    header.innerHTML = headerHtml;
+    tableEl.appendChild(header);
+
+    data.sites.forEach(site => tableEl.appendChild(buildForecastRow(site)));
+  }
+
+  fetch("weather.json?" + Date.now())
+    .then(r => {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    })
+    .then(render)
+    .catch(err => {
+      document.getElementById("updated").textContent =
+        "Kunne ikke hente weather.json (" + err.message + ")";
+    });
+</script>
+
 </body>
 </html>
