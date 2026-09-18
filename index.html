@@ -141,7 +141,7 @@
     const mm = String(d.getMonth() + 1).padStart(2, "0");
     const hh = String(d.getHours()).padStart(2, "0");
     const mi = String(d.getMinutes()).padStart(2, "0");
-    return "Opdateret: " + dd + "/" + mm + "/" + d.getFullYear() + " " + hh + ":" + mi;
+    return "Vejrinformation sidst opdateret " + dd + "/" + mm + "/" + d.getFullYear() + " " + hh + ":" + mi + " via api.open-meteo.com";
   }
 
   function windArrow(degrees) {
