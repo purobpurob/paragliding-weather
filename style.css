@@ -36,23 +36,35 @@ body {
 .page-header {
   text-align: center;
   margin-bottom: 24px;
+  padding: 40px 20px;
+  border-radius: 20px;
+  background-image:
+    linear-gradient(rgba(20, 25, 20, 0.55), rgba(20, 25, 20, 0.4)),
+    url('parapic.jpg');
+  background-size: cover;
+  background-position: center 65%;
+  box-shadow: var(--card-shadow);
 }
 
 .page-header h1 {
   font-size: 1.6rem;
   font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
 }
 
 .page-header .sub {
-  color: var(--muted);
+  color: #eef0f2;
   margin-top: 4px;
   font-size: 0.95rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .page-header .updated {
-  color: var(--muted);
+  color: #eef0f2;
   font-size: 0.85rem;
   margin-top: 10px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .assumptions-toggle {
