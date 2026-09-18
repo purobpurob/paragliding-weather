@@ -295,6 +295,19 @@ body {
   font-size: 0.85rem;
 }
 
+.windy-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: #2a7fd4;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.windy-link:hover {
+  text-decoration: underline;
+}
+
 /* ---------- 5 day forecast ---------- */
 
 .forecast h2 {
