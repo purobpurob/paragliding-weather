@@ -85,6 +85,15 @@ body {
   margin-bottom: 12px;
 }
 
+.assumptions-note {
+  background: #f7f8fa;
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--text) !important;
+  font-size: 0.85rem !important;
+  margin-bottom: 14px;
+}
+
 .assumptions-panel h3 {
   font-size: 0.9rem;
   font-weight: 700;
