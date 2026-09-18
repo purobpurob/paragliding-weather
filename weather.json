@@ -1,117 +1,109 @@
-﻿{
-    "updated":  "2026-09-18T13:32:32",
-    "flyingHours":  "09:00-19:00",
-    "forecastDays":  5,
-    "sites":  [
-                  {
-                      "name":  "Hammars Backar",
-                      "days":  [
-                                   {
-                                       "date":  "2026-09-18",
-                                       "status":  "red",
-                                       "wind":  8.7,
-                                       "gust":  14.7,
-                                       "precipitation":  0.1,
-                                       "direction":  "SV",
-                                       "degrees":  242,
-                                       "reason":  "For kraftig vind, For kraftige vindstød, Nedbør i perioder"
-                                   },
-                                   {
-                                       "date":  "2026-09-19",
-                                       "status":  "red",
-                                       "wind":  9.2,
-                                       "gust":  15.1,
-                                       "precipitation":  0.1,
-                                       "direction":  "SV",
-                                       "degrees":  225,
-                                       "reason":  "For kraftig vind, For kraftige vindstød, Nedbør i perioder"
-                                   },
-                                   {
-                                       "date":  "2026-09-20",
-                                       "status":  "red",
-                                       "wind":  9.8,
-                                       "gust":  20.5,
-                                       "precipitation":  0,
-                                       "direction":  "V",
-                                       "degrees":  266,
-                                       "reason":  "For kraftig vind, For kraftige vindstød, Vindretning ikke optimal (V)"
-                                   },
-                                   {
-                                       "date":  "2026-09-21",
-                                       "status":  "red",
-                                       "wind":  9.2,
-                                       "gust":  17.3,
-                                       "precipitation":  0,
-                                       "direction":  "NV",
-                                       "degrees":  298,
-                                       "reason":  "For kraftig vind, For kraftige vindstød, Forkert vindretning (NV)"
-                                   },
-                                   {
-                                       "date":  "2026-09-22",
-                                       "status":  "red",
-                                       "wind":  3.3,
-                                       "gust":  6.4,
-                                       "precipitation":  0,
-                                       "direction":  "N",
-                                       "degrees":  358,
-                                       "reason":  "Forkert vindretning (N)"
-                                   }
-                               ]
-                  },
-                  {
-                      "name":  "Heatherhill",
-                      "days":  [
-                                   {
-                                       "date":  "2026-09-18",
-                                       "status":  "red",
-                                       "wind":  8.2,
-                                       "gust":  14.6,
-                                       "precipitation":  0.1,
-                                       "direction":  "SV",
-                                       "degrees":  238,
-                                       "reason":  "For kraftig vind, For kraftige vindstød, Nedbør i perioder, Forkert vindretning (SV)"
-                                   },
-                                   {
-                                       "date":  "2026-09-19",
-                                       "status":  "red",
-                                       "wind":  8.8,
-                                       "gust":  15.5,
-                                       "precipitation":  0.2,
-                                       "direction":  "SV",
-                                       "degrees":  213,
-                                       "reason":  "For kraftig vind, For kraftige vindstød, Nedbør i perioder, Forkert vindretning (SV)"
-                                   },
-                                   {
-                                       "date":  "2026-09-20",
-                                       "status":  "red",
-                                       "wind":  12.4,
-                                       "gust":  27.9,
-                                       "precipitation":  1.7,
-                                       "direction":  "V",
-                                       "degrees":  263,
-                                       "reason":  "For kraftig vind, For kraftige vindstød, Regn, Forkert vindretning (V)"
-                                   },
-                                   {
-                                       "date":  "2026-09-21",
-                                       "status":  "red",
-                                       "wind":  11,
-                                       "gust":  22,
-                                       "precipitation":  0.1,
-                                       "direction":  "NV",
-                                       "degrees":  309,
-                                       "reason":  "For kraftig vind, For kraftige vindstød, Nedbør i perioder"
-                                   },
-                                   {
-                                       "date":  "2026-09-22",
-                                       "status":  "green",
-                                       "wind":  2.2,
-                                       "gust":  6.2,
-                                       "precipitation":  0,
-                                       "direction":  "N",
-                                       "degrees":  353,
-                                       "reason":  "Gode vindforhold"
-                                   }
-                               ]
-                  }
-              ]
+{
+  "updated": "2026-09-18T06:00:00",
+  "flyingHours": "09:00-19:00",
+  "forecastDays": 5,
+  "sites": [
+    {
+      "name": "Hammars Backar",
+      "flag": "🇸🇪",
+      "days": [
+        {
+          "date": "2026-09-18", "status": "green", "wind": 4.8, "gust": 7.2, "precipitation": 0.0, "direction": "SV", "degrees": 214,
+          "reason": "Gode vindforhold",
+          "windows": [
+            { "label": "Formiddag", "range": "09-13", "status": "green", "wind": 3.9, "gust": 6.0, "precipitation": 0.0, "direction": "SV", "degrees": 210, "reason": "Gode vindforhold" },
+            { "label": "Eftermiddag", "range": "13-16", "status": "green", "wind": 4.5, "gust": 6.8, "precipitation": 0.0, "direction": "SV", "degrees": 216, "reason": "Gode vindforhold" },
+            { "label": "Sen eftermiddag", "range": "16-19", "status": "green", "wind": 4.8, "gust": 7.2, "precipitation": 0.0, "direction": "SV", "degrees": 218, "reason": "Gode vindforhold" }
+          ]
+        },
+        {
+          "date": "2026-09-19", "status": "yellow", "wind": 5.7, "gust": 9.1, "precipitation": 0.3, "direction": "V", "degrees": 265,
+          "reason": "Vind over 5 m/s, kraftige vindstød, nedbør i perioder",
+          "windows": [
+            { "label": "Formiddag", "range": "09-13", "status": "green", "wind": 4.2, "gust": 6.5, "precipitation": 0.0, "direction": "SV", "degrees": 230, "reason": "Gode vindforhold" },
+            { "label": "Eftermiddag", "range": "13-16", "status": "yellow", "wind": 5.2, "gust": 8.3, "precipitation": 0.1, "direction": "V", "degrees": 260, "reason": "Vind over 5 m/s" },
+            { "label": "Sen eftermiddag", "range": "16-19", "status": "yellow", "wind": 5.7, "gust": 9.1, "precipitation": 0.3, "direction": "V", "degrees": 270, "reason": "Vind over 5 m/s, kraftige vindstød, nedbør i perioder" }
+          ]
+        },
+        {
+          "date": "2026-09-20", "status": "red", "wind": 7.3, "gust": 12.1, "precipitation": 2.4, "direction": "N", "degrees": 350,
+          "reason": "For kraftig vind, for kraftige vindstød, regn, forkert vindretning",
+          "windows": [
+            { "label": "Formiddag", "range": "09-13", "status": "yellow", "wind": 5.6, "gust": 8.8, "precipitation": 0.2, "direction": "NV", "degrees": 320, "reason": "Vind over 5 m/s, kraftige vindstød, nedbør i perioder, vindretning ikke optimal" },
+            { "label": "Eftermiddag", "range": "13-16", "status": "red", "wind": 7.0, "gust": 11.5, "precipitation": 1.8, "direction": "N", "degrees": 350, "reason": "For kraftig vind, for kraftige vindstød, regn, forkert vindretning" },
+            { "label": "Sen eftermiddag", "range": "16-19", "status": "red", "wind": 7.3, "gust": 12.1, "precipitation": 2.4, "direction": "N", "degrees": 345, "reason": "For kraftig vind, for kraftige vindstød, regn, forkert vindretning" }
+          ]
+        },
+        {
+          "date": "2026-09-21", "status": "green", "wind": 3.9, "gust": 6.4, "precipitation": 0.0, "direction": "SV", "degrees": 228,
+          "reason": "Gode vindforhold",
+          "windows": [
+            { "label": "Formiddag", "range": "09-13", "status": "green", "wind": 3.2, "gust": 5.4, "precipitation": 0.0, "direction": "SV", "degrees": 222, "reason": "Gode vindforhold" },
+            { "label": "Eftermiddag", "range": "13-16", "status": "green", "wind": 3.6, "gust": 6.0, "precipitation": 0.0, "direction": "SV", "degrees": 226, "reason": "Gode vindforhold" },
+            { "label": "Sen eftermiddag", "range": "16-19", "status": "green", "wind": 3.9, "gust": 6.4, "precipitation": 0.0, "direction": "SV", "degrees": 228, "reason": "Gode vindforhold" }
+          ]
+        },
+        {
+          "date": "2026-09-22", "status": "green", "wind": 4.2, "gust": 6.9, "precipitation": 0.0, "direction": "SSV", "degrees": 205,
+          "reason": "Gode vindforhold",
+          "windows": [
+            { "label": "Formiddag", "range": "09-13", "status": "green", "wind": 3.5, "gust": 5.8, "precipitation": 0.0, "direction": "SSV", "degrees": 200, "reason": "Gode vindforhold" },
+            { "label": "Eftermiddag", "range": "13-16", "status": "green", "wind": 3.9, "gust": 6.3, "precipitation": 0.0, "direction": "SSV", "degrees": 204, "reason": "Gode vindforhold" },
+            { "label": "Sen eftermiddag", "range": "16-19", "status": "green", "wind": 4.2, "gust": 6.9, "precipitation": 0.0, "direction": "SSV", "degrees": 208, "reason": "Gode vindforhold" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Heatherhill",
+      "flag": "🇩🇰",
+      "days": [
+        {
+          "date": "2026-09-18", "status": "yellow", "wind": 5.4, "gust": 8.7, "precipitation": 0.0, "direction": "N", "degrees": 5,
+          "reason": "Vind over 5 m/s",
+          "windows": [
+            { "label": "Formiddag", "range": "09-13", "status": "green", "wind": 4.0, "gust": 6.2, "precipitation": 0.0, "direction": "N", "degrees": 10, "reason": "Gode vindforhold" },
+            { "label": "Eftermiddag", "range": "13-16", "status": "yellow", "wind": 5.1, "gust": 8.0, "precipitation": 0.0, "direction": "N", "degrees": 5, "reason": "Vind over 5 m/s" },
+            { "label": "Sen eftermiddag", "range": "16-19", "status": "yellow", "wind": 5.4, "gust": 8.7, "precipitation": 0.0, "direction": "N", "degrees": 2, "reason": "Vind over 5 m/s" }
+          ]
+        },
+        {
+          "date": "2026-09-19", "status": "green", "wind": 4.1, "gust": 6.8, "precipitation": 0.0, "direction": "NV", "degrees": 315,
+          "reason": "Gode vindforhold",
+          "windows": [
+            { "label": "Formiddag", "range": "09-13", "status": "green", "wind": 3.4, "gust": 5.6, "precipitation": 0.0, "direction": "NV", "degrees": 310, "reason": "Gode vindforhold" },
+            { "label": "Eftermiddag", "range": "13-16", "status": "green", "wind": 3.8, "gust": 6.2, "precipitation": 0.0, "direction": "NV", "degrees": 313, "reason": "Gode vindforhold" },
+            { "label": "Sen eftermiddag", "range": "16-19", "status": "green", "wind": 4.1, "gust": 6.8, "precipitation": 0.0, "direction": "NV", "degrees": 318, "reason": "Gode vindforhold" }
+          ]
+        },
+        {
+          "date": "2026-09-20", "status": "green", "wind": 3.6, "gust": 5.9, "precipitation": 0.0, "direction": "N", "degrees": 358,
+          "reason": "Gode vindforhold",
+          "windows": [
+            { "label": "Formiddag", "range": "09-13", "status": "green", "wind": 3.0, "gust": 5.0, "precipitation": 0.0, "direction": "N", "degrees": 355, "reason": "Gode vindforhold" },
+            { "label": "Eftermiddag", "range": "13-16", "status": "green", "wind": 3.3, "gust": 5.5, "precipitation": 0.0, "direction": "N", "degrees": 357, "reason": "Gode vindforhold" },
+            { "label": "Sen eftermiddag", "range": "16-19", "status": "green", "wind": 3.6, "gust": 5.9, "precipitation": 0.0, "direction": "N", "degrees": 0, "reason": "Gode vindforhold" }
+          ]
+        },
+        {
+          "date": "2026-09-21", "status": "yellow", "wind": 5.1, "gust": 8.3, "precipitation": 0.2, "direction": "V", "degrees": 275,
+          "reason": "Nedbør i perioder, vindretning ikke optimal",
+          "windows": [
+            { "label": "Formiddag", "range": "09-13", "status": "green", "wind": 3.8, "gust": 6.0, "precipitation": 0.0, "direction": "NV", "degrees": 300, "reason": "Gode vindforhold" },
+            { "label": "Eftermiddag", "range": "13-16", "status": "yellow", "wind": 4.9, "gust": 7.8, "precipitation": 0.1, "direction": "V", "degrees": 280, "reason": "Vindretning ikke optimal" },
+            { "label": "Sen eftermiddag", "range": "16-19", "status": "yellow", "wind": 5.1, "gust": 8.3, "precipitation": 0.2, "direction": "V", "degrees": 275, "reason": "Nedbør i perioder, vindretning ikke optimal" }
+          ]
+        },
+        {
+          "date": "2026-09-22", "status": "green", "wind": 3.9, "gust": 6.2, "precipitation": 0.0, "direction": "NV", "degrees": 300,
+          "reason": "Gode vindforhold",
+          "windows": [
+            { "label": "Formiddag", "range": "09-13", "status": "green", "wind": 3.2, "gust": 5.2, "precipitation": 0.0, "direction": "NV", "degrees": 295, "reason": "Gode vindforhold" },
+            { "label": "Eftermiddag", "range": "13-16", "status": "green", "wind": 3.6, "gust": 5.8, "precipitation": 0.0, "direction": "NV", "degrees": 298, "reason": "Gode vindforhold" },
+            { "label": "Sen eftermiddag", "range": "16-19", "status": "green", "wind": 3.9, "gust": 6.2, "precipitation": 0.0, "direction": "NV", "degrees": 302, "reason": "Gode vindforhold" }
+          ]
+        }
+      ]
+    }
+  ]
 }
