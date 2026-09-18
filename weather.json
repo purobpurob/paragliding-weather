@@ -1,5 +1,5 @@
 ﻿{
-    "updated":  "2026-09-18T15:50:47",
+    "updated":  "2026-09-18T16:00:03",
     "flyingHours":  "09:00-19:00",
     "forecastDays":  5,
     "sites":  [
@@ -45,8 +45,8 @@
                                                            "wind":  9.3,
                                                            "gust":  15.6,
                                                            "precipitation":  0,
-                                                           "direction":  "V",
-                                                           "degrees":  250,
+                                                           "direction":  "SV",
+                                                           "degrees":  246,
                                                            "reason":  "For kraftig vind, For kraftige vindstød"
                                                        }
                                                    ]
