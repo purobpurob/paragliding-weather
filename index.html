@@ -12,7 +12,26 @@
   <h1>🪂 Paragliding Weather</h1>
   <p class="sub">Flyvevejr for Hammars Backar &amp; Heatherhill</p>
   <p class="updated" id="updated">Henter data...</p>
+  <button class="assumptions-toggle" id="assumptions-toggle" type="button" aria-expanded="false">
+    Forudsætninger for vurdering
+  </button>
 </header>
+
+<section class="assumptions-panel" id="assumptions-panel" hidden>
+  <h2>Forudsætninger for vurdering</h2>
+
+  <h3>Hammars Backar</h3>
+  <p>SV-vendt hang. Ideel retning er SV (225&deg;). Grøn dækker SSV til VSV (190&deg;-260&deg;). Gul dækker overgangsretningerne S (170&deg;-190&deg;) og V (260&deg;-285&deg;). Alt andet regnes som forkert retning.</p>
+
+  <h3>Heatherhill</h3>
+  <p>NV-vendt hang. Ideel retning er NV til N. Grøn dækker VNV til NNØ (292&deg;-22&deg;, krydser nord). Gul dækker overgangsretningerne V (270&deg;-292&deg;) og NØ (22&deg;-45&deg;). Alt andet regnes som forkert retning.</p>
+
+  <h3>Vindstyrke, begge lokationer</h3>
+  <p>Baseret på maksimal vind og vindstød i tidsrummet 09:00-19:00. Vind over 5 m/s eller vindstød over 8 m/s giver gul. Vind over 6 m/s eller vindstød over 10 m/s giver rød, uanset retning.</p>
+
+  <h3>Samlet vurdering</h3>
+  <p>Retning og vindstyrke vurderes hver for sig. Dagens status er den mest kritiske af de to, så en dag med god retning men for meget vind bliver rød.</p>
+</section>
 
 <main id="cards" class="cards"></main>
 
@@ -22,7 +41,7 @@
 </section>
 
 <footer class="page-footer">
-  <p>Data fra Open-Meteo</p>
+  <p>Vibecode by Borup</p>
 </footer>
 
 <script>
@@ -127,6 +146,18 @@
 
     data.sites.forEach(site => tableEl.appendChild(buildForecastRow(site)));
   }
+
+  const toggleBtn = document.getElementById("assumptions-toggle");
+  const panel = document.getElementById("assumptions-panel");
+
+  toggleBtn.addEventListener("click", () => {
+    const isOpen = !panel.hidden;
+    panel.hidden = isOpen;
+    toggleBtn.setAttribute("aria-expanded", String(!isOpen));
+    toggleBtn.textContent = isOpen
+      ? "Forudsætninger for vurdering"
+      : "Skjul forudsætninger";
+  });
 
   fetch("weather.json?" + Date.now())
     .then(r => {
