@@ -1,10 +1,11 @@
 ﻿{
-    "updated":  "2026-09-18T22:34:45",
+    "updated":  "2026-09-18T22:41:31",
     "flyingHours":  "09:00-19:00",
     "forecastDays":  5,
     "sites":  [
                   {
                       "name":  "Hammars Backar",
+                      "flag":  "🇸🇪",
                       "days":  [
                                    {
                                        "date":  "2026-09-18",
@@ -45,8 +46,8 @@
                                                            "wind":  9.3,
                                                            "gust":  15.6,
                                                            "precipitation":  0,
-                                                           "direction":  "SV",
-                                                           "degrees":  246,
+                                                           "direction":  "V",
+                                                           "degrees":  248,
                                                            "reason":  "For kraftig vind, For kraftige vindstød"
                                                        }
                                                    ]
@@ -113,8 +114,8 @@
                                                            "wind":  8.2,
                                                            "gust":  13.8,
                                                            "precipitation":  0,
-                                                           "direction":  "V",
-                                                           "degrees":  252,
+                                                           "direction":  "SV",
+                                                           "degrees":  244,
                                                            "reason":  "For kraftig vind, For kraftige vindstød"
                                                        },
                                                        {
@@ -235,6 +236,7 @@
                   },
                   {
                       "name":  "Heatherhill",
+                      "flag":  "🇩🇰",
                       "days":  [
                                    {
                                        "date":  "2026-09-18",
