@@ -44,20 +44,6 @@ body {
   box-shadow: var(--card-shadow);
 }
 
-.banner-tagline {
-  position: absolute;
-  top: 70.5%;
-  left: 78.5%;
-  transform: translateX(-50%);
-  z-index: 2;
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 3.1cqw;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
-}
-
 .page-header-photo {
   position: absolute;
   inset: 0;
