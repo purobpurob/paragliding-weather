@@ -17,6 +17,59 @@
   --red-bg: #fdeaea;
   --red: #d9362b;
   --red-text: #b02a20;
+
+  --surface: #f7f8fa;
+}
+
+:root[data-theme="dark"] {
+  --bg: #14171c;
+  --text: #c9d1d9;
+  --muted: #8b949e;
+  --line: #2a2f37;
+  --card-bg: #1b1f26;
+  --card-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+
+  --green-bg: rgba(26, 156, 74, 0.18);
+  --green: #2ecc71;
+  --green-text: #57d98a;
+
+  --yellow-bg: rgba(217, 154, 0, 0.18);
+  --yellow: #e0a92e;
+  --yellow-text: #f0c14b;
+
+  --red-bg: rgba(217, 54, 43, 0.20);
+  --red: #e15a4f;
+  --red-text: #f08a80;
+
+  --surface: #232831;
+}
+
+html[data-theme="dark"] { background: #14171c; }
+
+/* ---------- Theme toggle ---------- */
+
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 50;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  color: var(--text);
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle:hover {
+  border-color: var(--muted);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -125,7 +178,7 @@ body {
 }
 
 .assumptions-note {
-  background: #f7f8fa;
+  background: var(--surface);
   border-radius: 10px;
   padding: 10px 12px;
   color: var(--text) !important;
@@ -267,7 +320,7 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: #f7f8fa;
+  background: var(--surface);
   border-radius: 10px;
   padding: 7px 8px;
 }
@@ -301,7 +354,7 @@ body {
 }
 
 .metric {
-  background: #f7f8fa;
+  background: var(--surface);
   border-radius: 12px;
   padding: 14px 12px;
   text-align: center;
@@ -488,7 +541,7 @@ body {
   width: 32px;
   height: 32px;
   border: none;
-  background: #f7f8fa;
+  background: var(--surface);
   border-radius: 50%;
   color: var(--text);
   font-size: 1.2rem;
@@ -526,7 +579,7 @@ body {
 }
 
 .window-row {
-  background: #f7f8fa;
+  background: var(--surface);
   border-radius: 12px;
   padding: 10px 12px;
   margin-bottom: 8px;
