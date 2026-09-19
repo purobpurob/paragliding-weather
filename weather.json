@@ -1,5 +1,5 @@
 ﻿{
-    "updated":  "2026-09-19T14:10:29",
+    "updated":  "2026-09-19T14:30:02",
     "flyingHours":  "09:00-19:00",
     "forecastDays":  5,
     "sites":  [
@@ -181,9 +181,9 @@
                                                            "wind":  1.7,
                                                            "gust":  3.5,
                                                            "precipitation":  0,
-                                                           "direction":  "NV",
-                                                           "degrees":  321,
-                                                           "reason":  "Forkert vindretning (NV)"
+                                                           "direction":  "NØ",
+                                                           "degrees":  67,
+                                                           "reason":  "Forkert vindretning (NØ)"
                                                        }
                                                    ]
                                    },
