@@ -1,5 +1,5 @@
 ﻿{
-    "updated":  "2026-09-19T09:00:03",
+    "updated":  "2026-09-19T09:09:24",
     "flyingHours":  "09:00-19:00",
     "forecastDays":  5,
     "sites":  [
@@ -69,8 +69,8 @@
                                                            "wind":  7.8,
                                                            "gust":  13.5,
                                                            "precipitation":  0.2,
-                                                           "direction":  "V",
-                                                           "degrees":  254,
+                                                           "direction":  "SV",
+                                                           "degrees":  246,
                                                            "reason":  "For kraftig vind, For kraftige vindstød, Nedbør i perioder"
                                                        },
                                                        {
@@ -148,9 +148,9 @@
                                        "wind":  3.4,
                                        "gust":  6.9,
                                        "precipitation":  0,
-                                       "direction":  "SV",
-                                       "degrees":  238,
-                                       "reason":  "Gode vindforhold",
+                                       "direction":  "V",
+                                       "degrees":  261,
+                                       "reason":  "Vindretning ikke optimal (V)",
                                        "windows":  [
                                                        {
                                                            "label":  "Formiddag",
