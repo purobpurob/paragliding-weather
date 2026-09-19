@@ -1,5 +1,5 @@
 ﻿{
-    "updated":  "2026-09-19T14:30:02",
+    "updated":  "2026-09-19T15:00:02",
     "flyingHours":  "09:00-19:00",
     "forecastDays":  5,
     "sites":  [
@@ -10,18 +10,18 @@
                                    {
                                        "date":  "2026-09-19",
                                        "status":  "red",
-                                       "wind":  9.4,
+                                       "wind":  9.7,
                                        "gust":  15.3,
                                        "precipitation":  0.1,
                                        "direction":  "SV",
-                                       "degrees":  225,
+                                       "degrees":  227,
                                        "reason":  "For kraftig vind, For kraftige vindstød, Nedbør i perioder",
                                        "windows":  [
                                                        {
                                                            "label":  "Formiddag",
                                                            "range":  "09-13",
                                                            "status":  "red",
-                                                           "wind":  8.5,
+                                                           "wind":  8.4,
                                                            "gust":  13.7,
                                                            "precipitation":  0,
                                                            "direction":  "SV",
@@ -32,22 +32,22 @@
                                                            "label":  "Eftermiddag",
                                                            "range":  "13-16",
                                                            "status":  "red",
-                                                           "wind":  9.4,
+                                                           "wind":  9.1,
                                                            "gust":  15,
                                                            "precipitation":  0,
                                                            "direction":  "SV",
-                                                           "degrees":  229,
+                                                           "degrees":  230,
                                                            "reason":  "For kraftig vind, For kraftige vindstød"
                                                        },
                                                        {
                                                            "label":  "Sen eftermiddag",
                                                            "range":  "16-19",
                                                            "status":  "red",
-                                                           "wind":  9.3,
+                                                           "wind":  9.7,
                                                            "gust":  15.3,
                                                            "precipitation":  0.1,
                                                            "direction":  "SV",
-                                                           "degrees":  225,
+                                                           "degrees":  227,
                                                            "reason":  "For kraftig vind, For kraftige vindstød, Nedbør i perioder"
                                                        }
                                                    ]
@@ -55,7 +55,7 @@
                                    {
                                        "date":  "2026-09-20",
                                        "status":  "red",
-                                       "wind":  9.7,
+                                       "wind":  9,
                                        "gust":  16.4,
                                        "precipitation":  2.1,
                                        "direction":  "V",
@@ -66,18 +66,18 @@
                                                            "label":  "Formiddag",
                                                            "range":  "09-13",
                                                            "status":  "red",
-                                                           "wind":  7.8,
+                                                           "wind":  8.1,
                                                            "gust":  15.4,
                                                            "precipitation":  0.2,
                                                            "direction":  "SV",
-                                                           "degrees":  245,
+                                                           "degrees":  246,
                                                            "reason":  "For kraftig vind, For kraftige vindstød, Nedbør i perioder"
                                                        },
                                                        {
                                                            "label":  "Eftermiddag",
                                                            "range":  "13-16",
                                                            "status":  "red",
-                                                           "wind":  8.9,
+                                                           "wind":  9,
                                                            "gust":  16.3,
                                                            "precipitation":  0,
                                                            "direction":  "V",
@@ -88,11 +88,11 @@
                                                            "label":  "Sen eftermiddag",
                                                            "range":  "16-19",
                                                            "status":  "red",
-                                                           "wind":  9.7,
+                                                           "wind":  8.5,
                                                            "gust":  16.4,
                                                            "precipitation":  2.1,
                                                            "direction":  "V",
-                                                           "degrees":  265,
+                                                           "degrees":  264,
                                                            "reason":  "For kraftig vind, For kraftige vindstød, Regn, Vindretning ikke optimal (V)"
                                                        }
                                                    ]
@@ -104,14 +104,14 @@
                                        "gust":  15.5,
                                        "precipitation":  0,
                                        "direction":  "NV",
-                                       "degrees":  297,
+                                       "degrees":  298,
                                        "reason":  "For kraftig vind, For kraftige vindstød, Forkert vindretning (NV)",
                                        "windows":  [
                                                        {
                                                            "label":  "Formiddag",
                                                            "range":  "09-13",
                                                            "status":  "red",
-                                                           "wind":  8.3,
+                                                           "wind":  8.4,
                                                            "gust":  14.5,
                                                            "precipitation":  0,
                                                            "direction":  "NV",
@@ -122,22 +122,22 @@
                                                            "label":  "Eftermiddag",
                                                            "range":  "13-16",
                                                            "status":  "red",
-                                                           "wind":  8,
+                                                           "wind":  8.9,
                                                            "gust":  15.5,
                                                            "precipitation":  0,
                                                            "direction":  "NV",
-                                                           "degrees":  298,
+                                                           "degrees":  297,
                                                            "reason":  "For kraftig vind, For kraftige vindstød, Forkert vindretning (NV)"
                                                        },
                                                        {
                                                            "label":  "Sen eftermiddag",
                                                            "range":  "16-19",
                                                            "status":  "red",
-                                                           "wind":  8.9,
+                                                           "wind":  8.7,
                                                            "gust":  15.5,
                                                            "precipitation":  0,
                                                            "direction":  "NV",
-                                                           "degrees":  297,
+                                                           "degrees":  300,
                                                            "reason":  "For kraftig vind, For kraftige vindstød, Forkert vindretning (NV)"
                                                        }
                                                    ]
@@ -241,7 +241,7 @@
                                    {
                                        "date":  "2026-09-19",
                                        "status":  "red",
-                                       "wind":  9.1,
+                                       "wind":  8.9,
                                        "gust":  16.4,
                                        "precipitation":  0.5,
                                        "direction":  "SV",
@@ -263,22 +263,22 @@
                                                            "label":  "Eftermiddag",
                                                            "range":  "13-16",
                                                            "status":  "red",
-                                                           "wind":  9,
+                                                           "wind":  8.4,
                                                            "gust":  14.7,
                                                            "precipitation":  0.2,
                                                            "direction":  "SV",
-                                                           "degrees":  217,
+                                                           "degrees":  218,
                                                            "reason":  "For kraftig vind, For kraftige vindstød, Nedbør i perioder, Forkert vindretning (SV)"
                                                        },
                                                        {
                                                            "label":  "Sen eftermiddag",
                                                            "range":  "16-19",
                                                            "status":  "red",
-                                                           "wind":  9.1,
+                                                           "wind":  8.9,
                                                            "gust":  16.4,
                                                            "precipitation":  0.5,
                                                            "direction":  "SV",
-                                                           "degrees":  218,
+                                                           "degrees":  220,
                                                            "reason":  "For kraftig vind, For kraftige vindstød, Nedbør i perioder, Forkert vindretning (SV)"
                                                        }
                                                    ]
@@ -286,7 +286,7 @@
                                    {
                                        "date":  "2026-09-20",
                                        "status":  "red",
-                                       "wind":  11.6,
+                                       "wind":  12.2,
                                        "gust":  21,
                                        "precipitation":  2.6,
                                        "direction":  "V",
@@ -297,7 +297,7 @@
                                                            "label":  "Formiddag",
                                                            "range":  "09-13",
                                                            "status":  "red",
-                                                           "wind":  9.5,
+                                                           "wind":  9.4,
                                                            "gust":  16.8,
                                                            "precipitation":  0,
                                                            "direction":  "V",
@@ -308,7 +308,7 @@
                                                            "label":  "Eftermiddag",
                                                            "range":  "13-16",
                                                            "status":  "red",
-                                                           "wind":  11.6,
+                                                           "wind":  10.5,
                                                            "gust":  19.1,
                                                            "precipitation":  2.6,
                                                            "direction":  "V",
@@ -319,11 +319,11 @@
                                                            "label":  "Sen eftermiddag",
                                                            "range":  "16-19",
                                                            "status":  "red",
-                                                           "wind":  11.2,
+                                                           "wind":  12.2,
                                                            "gust":  21,
                                                            "precipitation":  1.3,
                                                            "direction":  "V",
-                                                           "degrees":  275,
+                                                           "degrees":  273,
                                                            "reason":  "For kraftig vind, For kraftige vindstød, Regn, Vindretning ikke optimal (V)"
                                                        }
                                                    ]
@@ -331,7 +331,7 @@
                                    {
                                        "date":  "2026-09-21",
                                        "status":  "red",
-                                       "wind":  11.7,
+                                       "wind":  11.9,
                                        "gust":  19.9,
                                        "precipitation":  0,
                                        "direction":  "NV",
@@ -342,29 +342,29 @@
                                                            "label":  "Formiddag",
                                                            "range":  "09-13",
                                                            "status":  "red",
-                                                           "wind":  11.7,
+                                                           "wind":  11.9,
                                                            "gust":  19.9,
                                                            "precipitation":  0,
                                                            "direction":  "NV",
-                                                           "degrees":  313,
+                                                           "degrees":  312,
                                                            "reason":  "For kraftig vind, For kraftige vindstød"
                                                        },
                                                        {
                                                            "label":  "Eftermiddag",
                                                            "range":  "13-16",
                                                            "status":  "red",
-                                                           "wind":  9.6,
+                                                           "wind":  10,
                                                            "gust":  17.4,
                                                            "precipitation":  0,
                                                            "direction":  "NV",
-                                                           "degrees":  310,
+                                                           "degrees":  309,
                                                            "reason":  "For kraftig vind, For kraftige vindstød"
                                                        },
                                                        {
                                                            "label":  "Sen eftermiddag",
                                                            "range":  "16-19",
                                                            "status":  "red",
-                                                           "wind":  8.8,
+                                                           "wind":  9.5,
                                                            "gust":  15.6,
                                                            "precipitation":  0,
                                                            "direction":  "NV",
