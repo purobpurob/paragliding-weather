@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html lang="da">
+<html lang="da" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Paragliding Weather Forecast</title>
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=4">
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem("theme");
+      if (saved === "light" || saved === "dark") {
+        document.documentElement.setAttribute("data-theme", saved);
+      }
+    } catch (e) {}
+  })();
+</script>
 </head>
 <body>
+
+<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Skift mellem lys og mørk">🌙</button>
 
 <header class="page-header">
   <div class="page-header-photo"></div>
@@ -99,6 +111,23 @@
 </footer>
 
 <script>
+  // ---------- Tema skift (lys / mørk) ----------
+  const themeToggle = document.getElementById("theme-toggle");
+
+  function applyThemeIcon() {
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    themeToggle.textContent = isDark ? "🌙" : "☀️";
+  }
+  applyThemeIcon();
+
+  themeToggle.addEventListener("click", () => {
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    const next = isDark ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+    applyThemeIcon();
+  });
+
   const STATUS_LABEL = {
     green:  "Gode muligheder",
     yellow: "Usikker",
